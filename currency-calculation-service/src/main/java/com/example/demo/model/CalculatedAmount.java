@@ -10,6 +10,7 @@ public class CalculatedAmount {
 	private BigDecimal conversionMultiple;
 	private BigDecimal quantity;
 	private BigDecimal totalCalculatedAmount;
+	private int port;
 
 	public CalculatedAmount() {
 		super();
@@ -17,7 +18,7 @@ public class CalculatedAmount {
 	}
 
 	public CalculatedAmount(Long id, String from, String to, BigDecimal conversionMultiple, BigDecimal quantity,
-			BigDecimal totalCalculatedAmount) {
+			BigDecimal totalCalculatedAmount,int port) {
 		super();
 		this.id = id;
 		this.from = from;
@@ -25,6 +26,7 @@ public class CalculatedAmount {
 		this.conversionMultiple = conversionMultiple;
 		this.quantity = quantity;
 		this.totalCalculatedAmount = totalCalculatedAmount;
+		this.port=port;
 	}
 
 	public Long getId() {
@@ -79,7 +81,15 @@ public class CalculatedAmount {
 	public String toString() {
 		return "CalculatedAmount [id=" + id + ", from=" + from + ", to=" + to + ", conversionMultiple="
 				+ conversionMultiple + ", quantity=" + quantity + ", totalCalculatedAmount=" + totalCalculatedAmount
-				+ "]";
+				+ ", port=" + port + "]";
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
 	}
 
 }
