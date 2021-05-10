@@ -1,0 +1,33 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: currencyexchange
+    version: v1
+  name: currencyexchange
+spec:
+  strategy: # Default, so usually not specified
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1  # specifies the maximum number of Pods that can be created over the desired number of Pods
+      maxUnavailable: 25% #specifies the maximum number of Pods that can be unavailable during the update process
+  replicas: 1
+  selector:
+    matchLabels:
+      app: currencyexchange
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: currencyexchange
+        version: v1
+    spec:
+      containers:
+        -
+          image: "shru2311/currencyexchange:V1"
+          imagePullPolicy: Always
+          name: currencyexchange
+          ports:
+          - name: httpport
+            containerPort: 8000

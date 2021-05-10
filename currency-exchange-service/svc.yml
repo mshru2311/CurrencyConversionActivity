@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: currencyexchange
+    version: v1
+  name: currencyexchange
+spec:
+  ports:
+    -
+      name: http
+      port: 8000
+      targetPort: 8000
+  selector:
+    app: currencyexchange
+    version: v1
+  type: NodePort
